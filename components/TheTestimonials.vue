@@ -1,14 +1,14 @@
 <template>
   <section id="testimonials" class="py-24 bg-light-blue">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16" v-motion-fade-visible>
+      <div class="text-center mb-16">
         <h2 class="text-4xl lg:text-5xl font-heading font-bold">
           Real Results. <span class="text-primary-800">Real Science.</span>
         </h2>
       </div>
       
       <!-- Case Study Comparison -->
-      <div class="mb-16 bg-white rounded-3xl overflow-hidden shadow-xl" v-motion-fade-visible>
+      <div class="mb-16 bg-white rounded-3xl overflow-hidden shadow-xl">
         <div class="grid md:grid-cols-2">
           <!-- Silicon Valley Executive -->
           <div class="p-8 md:p-12 border-r border-slate-100">
@@ -82,12 +82,8 @@
       </div>
       
       <!-- Testimonials Grid -->
-      <div class="grid md:grid-cols-3 gap-6" v-motion-staggered-fade-visible>
-        <div 
-          v-for="testimonial in testimonials" 
-          :key="testimonial.name"
-          class="card p-6"
-        >
+      <div class="grid md:grid-cols-3 gap-6">
+        <div v-for="testimonial in testimonials" :key="testimonial.name" class="card p-6">
           <div class="flex items-center gap-1 mb-4">
             <Icon v-for="i in 5" :key="i" name="i-heroicons-star-solid" class="w-5 h-5 text-yellow-400" />
           </div>

@@ -1,21 +1,19 @@
 <template>
-  <section class="py-24 bg-primary-900 text-white overflow-hidden">
+  <section class="py-24 bg-primary-900 text-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <div v-motion-fade-visible>
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6">
-          <Icon name="i-heroicons-calculator" class="w-4 h-4 text-accent-400" />
-          <span class="text-sm font-body font-medium text-white">Interactive Preview</span>
-        </div>
-        
-        <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-4">
-          What's Your <span class="text-accent-400">Biological Age</span>?
-        </h2>
-        <p class="text-xl font-body text-primary-200 mb-12 max-w-2xl mx-auto">
-          Take a sneak peek at the assessment inside the book. Complete version includes 50+ data points.
-        </p>
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6">
+        <Icon name="i-heroicons-calculator" class="w-4 h-4 text-accent-400" />
+        <span class="text-sm font-body font-medium text-white">Interactive Preview</span>
       </div>
       
-      <div class="bg-white rounded-3xl p-8 md:p-12 text-left shadow-2xl" v-motion-slide-visible-up>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-4">
+        What's Your <span class="text-accent-400">Biological Age</span>?
+      </h2>
+      <p class="text-xl font-body text-primary-200 mb-12 max-w-2xl mx-auto">
+        Take a sneak peek at the assessment inside the book. Complete version includes 50+ data points.
+      </p>
+      
+      <div class="bg-white rounded-3xl p-8 md:p-12 text-left shadow-2xl">
         <!-- Age Calculator Preview -->
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-6">
@@ -74,7 +72,7 @@
                     :key="option.value"
                     @click="hasPurpose = option.value"
                     class="flex-1 py-2 px-3 rounded-lg text-sm font-body transition-colors"
-                    :hasPurpose="hasPurpose === option.value 
+                    :class="hasPurpose === option.value 
                       ? 'bg-primary-600 text-white' 
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
                   >

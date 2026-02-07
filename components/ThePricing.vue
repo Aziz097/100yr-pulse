@@ -1,7 +1,7 @@
 <template>
   <section id="pricing" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16" v-motion-fade-visible>
+      <div class="text-center mb-16">
         <h2 class="text-4xl lg:text-5xl font-heading font-bold">
           Invest in Your <span class="text-primary-800">Longest Asset</span>
         </h2>
@@ -11,7 +11,7 @@
       </div>
       
       <!-- Primary Pricing Card -->
-      <div class="max-w-xl mx-auto" v-motion-slide-visible-up>
+      <div class="max-w-xl mx-auto">
         <div class="relative bg-light-blue rounded-3xl overflow-hidden shadow-xl">
           <!-- Best Value Badge -->
           <div class="absolute top-0 right-0 bg-accent-500 text-white text-sm font-bold px-4 py-2 rounded-bl-xl z-10">
@@ -56,11 +56,7 @@
           
           <div class="p-8 md:p-10 space-y-4">
             <h4 class="font-heading font-bold mb-4 text-lg">What's Included:</h4>
-            <div 
-              v-for="feature in features" 
-              :key="feature"
-              class="flex items-center gap-3"
-            >
+            <div v-for="feature in features" :key="feature" class="flex items-center gap-3">
               <Icon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500 flex-shrink-0" />
               <span class="font-body text-slate-700">{{ feature }}</span>
             </div>

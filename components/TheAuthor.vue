@@ -1,9 +1,9 @@
 <template>
-  <section id="author" class="py-24 bg-white">
+  <section class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <!-- Author Photo -->
-        <div class="relative" v-motion-slide-visible-left>
+        <div class="relative">
           <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
             <div class="w-full h-full bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center">
               <div class="text-center">
@@ -29,7 +29,7 @@
         </div>
         
         <!-- Author Bio -->
-        <div v-motion-slide-visible-right>
+        <div>
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full mb-6">
             <Icon name="i-heroicons-star" class="w-4 h-4 text-accent-500" />
             <span class="text-sm font-body font-medium text-primary-800">About the Author</span>

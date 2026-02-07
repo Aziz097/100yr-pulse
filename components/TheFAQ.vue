@@ -1,7 +1,7 @@
 <template>
   <section id="faq" class="py-24 bg-light-blue">
     <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-4xl font-heading font-bold text-center mb-12" v-motion-fade-visible>
+      <h2 class="text-4xl font-heading font-bold text-center mb-12">
         Common Questions
       </h2>
       
