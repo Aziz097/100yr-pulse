@@ -1,28 +1,35 @@
 <template>
-  <section id="faq" class="py-24 bg-light-blue">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-4xl font-heading font-bold text-center mb-12">
+  <section id="faq" class="py-24 bg-light-blue relative overflow-hidden">
+    <!-- Background Patterns -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <svg class="absolute top-[20%] left-[5%] w-10 h-10 text-pink-200/40 transform rotate-12 animate-float" viewBox="0 0 100 100" fill="currentColor">
+           <path d="M50 50 C20 20 20 80 50 50 C80 80 80 20 50 50 Z" />
+           <path d="M70 20 C60 10 90 10 70 20 Z" transform="translate(10, 10)"/>
+        </svg>
+        <svg class="absolute bottom-[20%] right-[10%] w-16 h-16 text-pink-200/30 transform -rotate-45 animate-float-delayed" viewBox="0 0 100 100" fill="currentColor">
+           <path d="M50 50 C20 20 20 80 50 50 C80 80 80 20 50 50 Z" />
+        </svg>
+        <svg class="absolute top-[5%] right-[20%] w-6 h-6 text-pink-200/20 transform rotate-[100deg] animate-float" style="animation-duration: 9s;">
+           <path d="M50 50 C20 20 20 80 50 50 C80 80 80 20 50 50 Z" />
+        </svg>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6 relative z-10">
+      <h2 class="text-4xl font-bold text-center mb-12 text-slate-800">
         Common Questions
       </h2>
       
       <div class="space-y-4">
-        <UCard 
-          v-for="faq in faqs" 
-          :key="faq.id"
-          class="overflow-hidden rounded-2xl"
-          :ui="{ 
-            body: { padding: 'p-0' },
-            divide: 'divide-y divide-slate-100'
-          }"
-        >
+        <div v-for="faq in faqs" :key="faq.id" class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
           <button 
             @click="toggle(faq.id)" 
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
           >
-            <span class="font-heading font-bold text-lg text-slate-800">{{ faq.question }}</span>
+            <span class="font-bold text-lg text-slate-800">{{ faq.question }}</span>
             <Icon 
-              :name="active === faq.id ? 'i-heroicons-minus' : 'i-heroicons-plus'" 
-              class="w-5 h-5 text-primary-600 flex-shrink-0 ml-4"
+              :name="active === faq.id ? 'i-heroicons-minus-circle' : 'i-heroicons-plus-circle'" 
+              class="w-6 h-6 flex-shrink-0 ml-4 transition-colors"
+              :class="active === faq.id ? 'text-primary-600' : 'text-slate-400'"
             />
           </button>
           <Transition
@@ -34,21 +41,27 @@
             leave-to-class="opacity-0 max-h-0"
           >
             <div v-if="active === faq.id" class="overflow-hidden">
-              <div class="px-6 pb-6">
-                <p class="font-body text-slate-600 leading-relaxed">{{ faq.answer }}</p>
+              <div class="px-6 pb-6 pt-0">
+                <p class="text-slate-600 leading-relaxed">{{ faq.answer }}</p>
               </div>
             </div>
           </Transition>
-        </UCard>
+        </div>
       </div>
       
       <!-- Additional Help -->
-      <div class="text-center mt-12 p-8 bg-white rounded-2xl shadow-sm">
-        <Icon name="i-heroicons-question-mark-circle" class="w-12 h-12 text-primary-400 mx-auto mb-4" />
-        <h3 class="font-heading font-bold text-lg mb-2">Still have questions?</h3>
-        <p class="font-body text-slate-600 mb-4">We typically respond within 24 hours.</p>
-        <a href="mailto:support@the100yearpulse.com" class="text-primary-700 font-medium hover:underline">
-          Email us →
+      <div class="mt-12 bg-white rounded-2xl shadow-sm border border-slate-100 p-6 flex flex-col md:flex-row items-center justify-between gap-6 max-w-2xl mx-auto">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center shrink-0">
+            <Icon name="i-heroicons-chat-bubble-left-right" class="w-6 h-6 text-primary-600" />
+          </div>
+          <div class="text-left">
+            <h3 class="font-bold text-slate-800">Still have questions?</h3>
+            <p class="text-sm text-slate-500">We typically respond within 24 hours.</p>
+          </div>
+        </div>
+        <a href="mailto:support@the100yearpulse.com" class="shrink-0 px-6 py-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:bg-slate-50 hover:text-primary-600 transition-colors font-medium text-sm">
+          Contact Support
         </a>
       </div>
     </div>

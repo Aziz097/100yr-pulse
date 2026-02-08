@@ -1,31 +1,31 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <TheHero />
+    <SectionsHero />
     
     <!-- Problem Section -->
-    <TheProblem />
+    <SectionsProblem />
     
     <!-- Four Pillars Section -->
-    <ThePillars />
+    <SectionsPillars />
     
     <!-- Author Section -->
-    <TheAuthor />
+    <SectionsAuthor />
     
     <!-- Social Proof Section -->
-    <TheTestimonials />
+    <SectionsTestimonials />
     
     <!-- Biological Age Preview -->
-    <TheAgePreview />
+    <SectionsAgePreview />
     
     <!-- Pricing Section -->
-    <ThePricing />
+    <SectionsPricing />
     
     <!-- FAQ Section -->
-    <TheFAQ />
+    <SectionsFAQ />
     
     <!-- Newsletter Section -->
-    <TheNewsletter />
+    <SectionsNewsletter />
   </div>
 </template>
 

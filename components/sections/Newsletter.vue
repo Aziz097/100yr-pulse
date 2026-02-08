@@ -1,8 +1,17 @@
 <template>
-  <section class="py-20 bg-primary-800 text-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <Icon name="i-heroicons-envelope" class="w-12 h-12 text-accent-400 mx-auto mb-6" />
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+  <section class="py-20 bg-primary-800 text-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none">
+      <svg width="100%" height="100%">
+        <pattern id="hex-pattern" x="0" y="0" width="50" height="43.3" patternUnits="userSpaceOnUse">
+          <path d="M25 0 L50 14.4 L50 43.3 L25 57.7 L0 43.3 L0 14.4 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#hex-pattern)"/>
+      </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
         Get Free Longevity Tips
       </h2>
       <p class="text-lg font-body text-primary-200 mb-8 max-w-xl mx-auto">
@@ -16,7 +25,7 @@
           type="email" 
           placeholder="Enter your email" 
           required
-          class="flex-1 px-6 py-4 rounded-full text-slate-800 font-body focus:ring-2 focus:ring-accent-400 focus:outline-none"
+          class="flex-1 px-6 py-4 rounded-full bg-white text-slate-900 border border-transparent focus:border-accent-400 font-body focus:ring-2 focus:ring-accent-400 focus:outline-none"
         />
         <button 
           type="submit"

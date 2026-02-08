@@ -1,13 +1,10 @@
 <template>
-  <div class="min-h-screen flex flex-col">
-    <TheHeader />
-    <main class="flex-1 relative">
+  <div class="min-h-screen flex flex-col relative">
+    <LayoutHeader />
+    <main class="flex-1 relative z-10">
       <slot />
     </main>
-    <TheFooter />
-    
-    <!-- Toast Notifications -->
-    <ToastContainer />
+    <LayoutFooter />
   </div>
 </template>
 

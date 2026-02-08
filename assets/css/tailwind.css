@@ -1,80 +1,102 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@nuxt/ui";
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-300: #93C5FD;
+  --color-primary-400: #60A5FA;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-primary-800: #1E40AF;
+  --color-primary-900: #1E3A8A;
+  --color-primary-950: #172554;
+
+  --color-accent-50: #FDF2F8;
+  --color-accent-100: #FCE7F3;
+  --color-accent-200: #FBCFE8;
+  --color-accent-300: #F9A8D4;
+  --color-accent-400: #F472B6;
+  --color-accent-500: #EC4899;
+  --color-accent-600: #DB2777;
+  --color-accent-700: #BE185D;
+  --color-accent-800: #9D174D;
+  --color-accent-900: #831843;
+
+  --color-light-blue: #EFF6FF;
+
+  --radius-super: 24px;
+
+  --shadow-soft: 0 4px 6px -1px rgba(30, 64, 175, 0.1), 0 2px 4px -1px rgba(30, 64, 175, 0.06);
+  --shadow-soft-lg: 0 10px 15px -3px rgba(30, 64, 175, 0.1), 0 4px 6px -2px rgba(30, 64, 175, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(30, 64, 175, 0.1), 0 10px 10px -5px rgba(30, 64, 175, 0.04);
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
-body {
-  font-family: 'Outfit', sans-serif;
-  color: #1E293B;
-  background-color: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Custom Utilities */
+@layer utilities {
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-heading font-bold text-base text-white bg-primary-800 rounded-full transition-all duration-200 hover:bg-primary-900 hover:shadow-soft-lg hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-heading font-bold text-base text-primary-800 bg-white border-2 border-primary-800 rounded-full transition-all duration-200 hover:bg-primary-50;
+  }
+
+  .card {
+    @apply bg-white rounded-super shadow-soft overflow-hidden transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  color: #0F172A;
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-slate-800 bg-white antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold text-slate-900;
+  }
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  color: white;
-  background-color: #1E40AF;
-  border-radius: 9999px;
-  transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-  background-color: #1E3A8A;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #1E40AF;
-  background-color: white;
-  border: 2px solid #1E40AF;
-  border-radius: 9999px;
-  transition: all 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #EFF6FF;
-}
-
-.card {
-  background-color: white;
-  border-radius: 24px;
-  box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1), 0 2px 4px -1px rgba(30, 64, 175, 0.06);
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.1), 0 4px 6px -2px rgba(30, 64, 175, 0.05);
-  transform: translateY(-4px);
-}
-
-/* Page transitions */
+/* Page Transitions */
 .page-enter-active,
-.page-leave-active {
+.page-leave-active,
+.layout-enter-active,
+.layout-leave-active {
   transition: all 0.3s ease;
 }
 
@@ -82,12 +104,6 @@ h1, h2, h3, h4, h5, h6 {
 .page-leave-to {
   opacity: 0;
   transform: translateY(10px);
-}
-
-/* Layout transitions */
-.layout-enter-active,
-.layout-leave-active {
-  transition: all 0.3s ease;
 }
 
 .layout-enter-from,

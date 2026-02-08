@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
 
@@ -6,19 +7,28 @@ export default defineNuxtConfig({
     '~/assets/css/tailwind.css'
   ],
 
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {}
-    }
-  },
-
   modules: [
     '@nuxtjs/google-fonts',
-    '@vueuse/motion/nuxt',
-    'nuxt-icon',
-    '@nuxt/image'
+    '@nuxt/icon',
+    '@nuxt/image',
+    '@nuxt/ui'
   ],
+
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+
+  googleFonts: {
+    families: {
+      'Plus+Jakarta+Sans': [400, 500, 600, 700, 800],
+      'Outfit': [300, 400, 500, 600, 700]
+    },
+    display: 'swap',
+    prefetch: true,
+    preconnect: true
+  },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
