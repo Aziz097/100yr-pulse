@@ -89,58 +89,58 @@
           </div>
 
           <!-- Circular Visual Flow -->
-          <div class="relative h-[400px] flex items-center justify-center">
+          <div class="relative h-[300px] sm:h-[400px] flex items-center justify-center">
              <!-- Connecting Lines Circle -->
              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-64 h-64 rounded-full border-2 border-dashed border-primary-300 shadow-[0_0_15px_rgba(56,189,248,0.3)] animate-[spin_60s_linear_infinite]"></div>
-                <div class="absolute w-48 h-48 rounded-full border border-slate-100"></div>
+                <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-2 border-dashed border-primary-300 shadow-[0_0_15px_rgba(56,189,248,0.3)] animate-[spin_60s_linear_infinite]"></div>
+                <div class="absolute w-36 h-36 sm:w-48 sm:h-48 rounded-full border border-slate-100"></div>
              </div>
              
              <!-- Center Core -->
-             <div class="relative z-20 w-32 h-32 bg-white rounded-full shadow-2xl flex flex-col items-center justify-center border-4 border-primary-50 z-20">
-               <Icon name="i-heroicons-heart" class="w-10 h-10 text-primary-600 animate-pulse-slow" />
-               <span class="text-xs font-bold text-slate-800 uppercase tracking-widest mt-2">Life</span>
+             <div class="relative z-20 w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full shadow-2xl flex flex-col items-center justify-center border-4 border-primary-50">
+               <Icon name="i-heroicons-heart" class="w-8 h-8 sm:w-10 sm:h-10 text-primary-600 animate-pulse-slow" />
+               <span class="text-[10px] sm:text-xs font-bold text-slate-800 uppercase tracking-widest mt-1 sm:mt-2">Life</span>
              </div>
 
              <!-- Orbiting Pillars with Labels -->
              <!-- Top: Mitochondrial -->
-             <div class="absolute top-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[0]">
-               <div class="w-16 h-16 bg-white rounded-2xl shadow-lg border-2 border-primary-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-primary-200">
-                 <Icon name="i-heroicons-bolt" class="w-8 h-8 text-primary-600" />
+             <div class="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[0]">
+               <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl shadow-lg border-2 border-primary-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-primary-200">
+                 <Icon name="i-heroicons-bolt" class="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />
                </div>
-               <span class="text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Mitochondrial</span>
-               <!-- Connector Line -->
-               <div class="absolute top-full left-1/2 w-0.5 h-6 bg-primary-400 shadow-[0_0_8px_theme(colors.primary.400)] -z-10"></div>
+               <span class="hidden sm:inline text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Mitochondrial</span>
+               <!-- Connector Line - hidden on mobile -->
+               <div class="hidden sm:block absolute top-full left-1/2 w-0.5 h-6 bg-primary-400 shadow-[0_0_8px_theme(colors.primary.400)] -z-10"></div>
              </div>
 
              <!-- Bottom: Purpose -->
-             <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col-reverse items-center gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[2]">
-               <div class="w-16 h-16 bg-white rounded-2xl shadow-lg border-2 border-primary-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-primary-200">
-                 <Icon name="i-heroicons-face-smile" class="w-8 h-8 text-primary-600" />
+             <div class="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex flex-col-reverse items-center gap-1 sm:gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[2]">
+               <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl shadow-lg border-2 border-primary-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-primary-200">
+                 <Icon name="i-heroicons-face-smile" class="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />
                </div>
-               <span class="text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Purpose</span>
-               <!-- Connector Line -->
-               <div class="absolute bottom-full left-1/2 w-0.5 h-6 bg-primary-400 shadow-[0_0_8px_theme(colors.primary.400)] -z-10"></div>
+               <span class="hidden sm:inline text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Purpose</span>
+               <!-- Connector Line - hidden on mobile -->
+               <div class="hidden sm:block absolute bottom-full left-1/2 w-0.5 h-6 bg-primary-400 shadow-[0_0_8px_theme(colors.primary.400)] -z-10"></div>
              </div>
 
              <!-- Left: Chemical -->
-             <div class="absolute left-0 top-1/2 -translate-y-1/2 flex flex-row items-center gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[1]">
-               <div class="w-16 h-16 bg-white rounded-2xl shadow-lg border-2 border-accent-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-accent-200">
-                 <Icon name="i-heroicons-beaker" class="w-8 h-8 text-accent-600" />
+             <div class="absolute left-0 sm:left-0 top-1/2 -translate-y-1/2 flex flex-row items-center gap-1 sm:gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[1]">
+               <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl shadow-lg border-2 border-accent-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-accent-200">
+                 <Icon name="i-heroicons-beaker" class="w-6 h-6 sm:w-8 sm:h-8 text-accent-600" />
                </div>
-               <span class="text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Chemical</span>
-                <!-- Connector Line -->
-               <div class="absolute left-full top-1/2 h-0.5 w-15 bg-accent-400 shadow-[0_0_8px_theme(colors.accent.400)] -z-10"></div>
+               <span class="hidden sm:inline text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Chemical</span>
+                <!-- Connector Line - hidden on mobile -->
+               <div class="hidden sm:block absolute left-full top-1/2 h-0.5 w-15 bg-accent-400 shadow-[0_0_8px_theme(colors.accent.400)] -z-10"></div>
              </div>
 
              <!-- Right: Epigenetic -->
-             <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-row-reverse items-center gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[3]">
-               <div class="w-16 h-16 bg-white rounded-2xl shadow-lg border-2 border-accent-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-accent-200">
-                 <Icon name="i-heroicons-clock" class="w-8 h-8 text-accent-600" />
+             <div class="absolute right-0 sm:right-0 top-1/2 -translate-y-1/2 flex flex-row-reverse items-center gap-1 sm:gap-2 group cursor-pointer z-30" @click="selectedPillar = pillars[3]">
+               <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl shadow-lg border-2 border-accent-50 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:border-accent-200">
+                 <Icon name="i-heroicons-clock" class="w-6 h-6 sm:w-8 sm:h-8 text-accent-600" />
                </div>
-               <span class="text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Epigenetic</span>
-               <!-- Connector Line -->
-               <div class="absolute right-full top-1/2 h-0.5 w-14 bg-accent-400 shadow-[0_0_8px_theme(colors.accent.400)] -z-10"></div>
+               <span class="hidden sm:inline text-xs font-bold text-slate-700 bg-white/90 px-3 py-1 rounded-full shadow-sm">Epigenetic</span>
+               <!-- Connector Line - hidden on mobile -->
+               <div class="hidden sm:block absolute right-full top-1/2 h-0.5 w-14 bg-accent-400 shadow-[0_0_8px_theme(colors.accent.400)] -z-10"></div>
              </div>
           </div>
         </div>
